@@ -48,4 +48,8 @@ In any other OS you can run `dotnet build` and then `dotnet test`.
 
 ## Thoughts
 
-I chose to do the assignement in C# and Appium since 
+I chose to do the assignment in C# and Appium since I am not as familiar with these technologies and I wanted to learn them. The project follows a Page/Component & Action approach. I use this approach extensively with Java and Web automation (checkout [my other Java project](https://github.com/alixhanbasha/ECommerce-SwagLabs-Java-Automation)) so I tried to copy that here as well. My main focus other than automating flows was to also produce a well organized, readable and maintainable project. 
+
+I was able to automate the start screen, navigation component, login form, "Forms" page and some other components. In total there are 8 implemented scenarios. The BDD scenarios prioritize readability and assume that the reader has no technical knowledge (plain old English).
+
+I did not automate any pages that require gestures because of time constraints and my lack of experience with Appium (for now), however I've implemented swiping and drag-and-drop helpers (just did not get the chance to actually automate scenarios).
