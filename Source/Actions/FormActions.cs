@@ -9,37 +9,40 @@ using Ritech.Utils;
 
 namespace Ritech.Actions
 {
-    public class LoginFormActions : CommonActions
+    public class FormActions : CommonActions
     {
 
-        private LoginFormPage _formPage;
+        private FormPage _formPage;
 
-        public LoginFormActions(LoginFormPage formPage)
+        public FormActions(FormPage formPage)
         {
             _formPage = formPage;
         }
 
-        public LoginFormActions GotoLoginTab(){
-            _formPage.LoginTrigger.Click();
+        public FormActions HasInput(String Input){
+            _formPage.InputField.SendKeys(Input);
+            Assert.True(_formPage.InputMirror.Text.Equals(Input)); // make sure that we see the same text
             return this;
         }
 
-        public LoginFormActions GotoSignupTab(){
-            _formPage.SignupTrigger.Click();
+        public FormActions TriggerSwitch(){
+            _formPage.Switch.Click();
             return this;
         }
 
-        public LoginFormActions EnsureErrorIsDisplayed(string Error)
-        {
-            Assert.True(_formPage.FindErrorMessage(Error).Displayed);
+        public FormActions Submit(){
+            _formPage.SubmitButton.Click();
             return this;
         }
 
         public bool EnsureIsDisplayedProperly()
         {
             CustomActions.WaitUntilDisplayed(_formPage.FormHeader);
-            Assert.True(_formPage.LoginTrigger.Displayed);
-            Assert.True(_formPage.SignupTrigger.Displayed);
+            Assert.True(_formPage.FormContainer.Displayed);
+            Assert.True(_formPage.InputField.Displayed);
+            Assert.True(_formPage.InputMirror.Displayed);
+            Assert.True(_formPage.Switch.Displayed);
+            Assert.True(_formPage.Dropdown.Actions.EnsureIsDisplayedProperly());
 
             Trace.WriteLine("The form page is present and displayed properly.");
             return true;

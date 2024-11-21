@@ -2,6 +2,14 @@
 
 Application under test: [WebDriverIO Demo Android App](https://github.com/webdriverio/native-demo-app/releases)
 
+### Running the tests
+If you are using a Debian based Linux distro like Ubuntu, just run `./BuildAndTest.sh` and everything should be fine.
+Please make sure you have all the dependencies installed. This project was built with .NET 8.
+
+In any other OS you can run `dotnet build` and then `dotnet test`.
+
+---
+
 ### Project structure
 ```text
 -- Features                 // Where the feature files live
@@ -18,9 +26,11 @@ Application under test: [WebDriverIO Demo Android App](https://github.com/webdri
  |-- Utils                  // Helpers and support classes
 ```
 
+---
+
 ### Details & Dependencies
 - Operating system where the project was developed: Ubuntu 24.10
-- Dotnet 8
+- .NET 8
 - NUnit
 - Appium 2.12.1
     - Appium gestures plugin

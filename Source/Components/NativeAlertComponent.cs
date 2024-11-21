@@ -30,7 +30,7 @@ namespace Ritech.Components
 
 
         public AppiumElement AlertContainer => CustomActions.FindElement(
-            By.XPath("//android.widget.FrameLayout[@resource-id='android:id/content']")
+            By.XPath("(//android.widget.FrameLayout[@resource-id='android:id/content'] | //android.widget.LinearLayout[@resource-id='android:id/parentPanel'])")
         );
 
         public AppiumElement AlertTitle => CustomActions.FindElement(
@@ -43,6 +43,14 @@ namespace Ritech.Components
 
         public AppiumElement OkButton => CustomActions.FindElement(
             By.XPath("//android.widget.Button[@resource-id='android:id/button1']")
+        );
+
+        public AppiumElement CancelButton => CustomActions.FindElement(
+            By.XPath("//android.widget.Button[@resource-id='android:id/button2']")
+        );
+
+        public AppiumElement AskMeLaterButton => CustomActions.FindElement(
+            By.XPath("//android.widget.Button[@resource-id='android:id/button3']")
         );
     }
 

@@ -1,6 +1,6 @@
 @Login
 Feature: The Login screen
-![Calculator](https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?t=st=1732149485~exp=1732153085~hmac=9f5f748229fe8c1653c266900aaf44dd479995e8bd6f721997fb2f975751454d&w=300)
+![Login](https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?t=st=1732149485~exp=1732153085~hmac=9f5f748229fe8c1653c266900aaf44dd479995e8bd6f721997fb2f975751454d&w=300)
 
 The user can enter his/her email and password, click "Login" and a popup will show up if the 
 credentials are "registered" and valid. Otherwise the user will se some error based on his/her actions.
