@@ -9,10 +9,13 @@ using Ritech.Utils;
 
 namespace Ritech.Components
 {
-
+    /*
+    * The Alert popup component 
+    */
     public class NativeAlertComponent
     {
 
+        // does NativeAlertActions
         private NativeAlertActions _actions;
 
         public NativeAlertActions Actions

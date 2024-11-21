@@ -12,10 +12,12 @@ using Ritech.Utils;
  */
 namespace Ritech.Components
 {
-
+    /*
+    * Navigation menu component
+    */
     public class NavigationComponent
     {
-
+        // does NavigationActions
         private NavigationActions _actions;
         public NavigationActions Actions
         {

@@ -9,6 +9,9 @@ using Ritech.Utils;
 
 namespace Ritech.Actions
 {
+    /*
+    * Actions related to the alert popups
+    */
     public class NativeAlertActions : CommonActions
     {
 
@@ -19,17 +22,20 @@ namespace Ritech.Actions
             _nativeAlert = alert;
         }
 
-        public NativeAlertActions EnsureAlertTitleIs(String Title){
+        public NativeAlertActions EnsureAlertTitleIs(String Title)
+        {
             Assert.True(_nativeAlert.AlertTitle.Text.Equals(Title));
             return this;
         }
 
-        public NativeAlertActions EnsureAlertMessageIs(String Message){
+        public NativeAlertActions EnsureAlertMessageIs(String Message)
+        {
             Assert.True(_nativeAlert.AlertMessage.Text.Equals(Message));
             return this;
         }
 
-        public NativeAlertActions ClosePopup(){
+        public NativeAlertActions ClosePopup()
+        {
             _nativeAlert.OkButton.Click();
             return this;
         }

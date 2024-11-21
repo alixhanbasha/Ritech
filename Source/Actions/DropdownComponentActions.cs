@@ -10,9 +10,11 @@ using Ritech.Utils;
 
 namespace Ritech.Actions
 {
+    /*
+    * Actions that the dropdown component can do
+    */
     public class DropdownComponentActions : CommonActions
     {
-
         private DropdownComponent _dropdown;
 
         public DropdownComponentActions(DropdownComponent formPage)
@@ -20,14 +22,16 @@ namespace Ritech.Actions
             _dropdown = formPage;
         }
 
-        public DropdownComponentActions Open(){
+        public DropdownComponentActions Open()
+        {
             _dropdown.DropdownTrigger.Click();
             CustomActions.WaitUntilDisplayed(_dropdown.DropdownContainer);
             Assert.True(_dropdown.DropdownContainer.Displayed);
             return this;
         }
 
-        public DropdownComponentActions Select(String Option){
+        public DropdownComponentActions Select(String Option)
+        {
             var option = _dropdown.DropdownItemWithText(Option);
             Assert.True(option.Displayed);
             option.Click();

@@ -9,10 +9,12 @@ using Ritech.Utils;
 
 namespace Ritech.Components
 {
-
+    /*
+    * The Login form-component from the "Login page". 
+    */
     public class LoginFormComponent
     {
-
+        // does LoginFormComponentActions
         private LoginFormComponentActions _actions;
 
         public LoginFormComponentActions Actions

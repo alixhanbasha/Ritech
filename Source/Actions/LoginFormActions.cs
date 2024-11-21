@@ -9,6 +9,9 @@ using Ritech.Utils;
 
 namespace Ritech.Actions
 {
+    /*
+    * Actions related to the login form
+    */
     public class LoginFormActions : CommonActions
     {
 
@@ -19,12 +22,14 @@ namespace Ritech.Actions
             _loginPage = formPage;
         }
 
-        public LoginFormActions GotoLoginTab(){
+        public LoginFormActions GotoLoginTab()
+        {
             _loginPage.LoginTrigger.Click();
             return this;
         }
 
-        public LoginFormActions GotoSignupTab(){
+        public LoginFormActions GotoSignupTab()
+        {
             _loginPage.SignupTrigger.Click();
             return this;
         }

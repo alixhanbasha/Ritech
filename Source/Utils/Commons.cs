@@ -19,5 +19,5 @@ namespace Ritech.Utils
         public static readonly string DRAG = "Drag";
     }
 
-    
+
 }

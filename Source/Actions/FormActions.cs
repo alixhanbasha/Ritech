@@ -9,6 +9,9 @@ using Ritech.Utils;
 
 namespace Ritech.Actions
 {
+    /*
+    * Actions related to the "Form" page can do
+    */
     public class FormActions : CommonActions
     {
 
@@ -19,18 +22,21 @@ namespace Ritech.Actions
             _formPage = formPage;
         }
 
-        public FormActions HasInput(String Input){
+        public FormActions HasInput(String Input)
+        {
             _formPage.InputField.SendKeys(Input);
             Assert.True(_formPage.InputMirror.Text.Equals(Input)); // make sure that we see the same text
             return this;
         }
 
-        public FormActions TriggerSwitch(){
+        public FormActions TriggerSwitch()
+        {
             _formPage.Switch.Click();
             return this;
         }
 
-        public FormActions Submit(){
+        public FormActions Submit()
+        {
             _formPage.SubmitButton.Click();
             return this;
         }

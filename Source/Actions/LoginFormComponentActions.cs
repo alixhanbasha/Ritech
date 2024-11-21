@@ -9,6 +9,9 @@ using Ritech.Utils;
 
 namespace Ritech.Actions
 {
+    /*
+    * Actions related to the login form-component
+    */
     public class LoginFormComponentActions : CommonActions
     {
 
@@ -19,23 +22,27 @@ namespace Ritech.Actions
             _loginForm = loginForm;
         }
 
-        public LoginFormComponentActions TypeEmail(string Email){
+        public LoginFormComponentActions TypeEmail(string Email)
+        {
             _loginForm.EmailInput.SendKeys(Email);
             return this;
         }
 
-        public LoginFormComponentActions TypePassword(string Password){
+        public LoginFormComponentActions TypePassword(string Password)
+        {
             _loginForm.PasswordInput.SendKeys(Password);
             return this;
         }
 
-        public LoginFormComponentActions ClearData(){
+        public LoginFormComponentActions ClearData()
+        {
             _loginForm.EmailInput.SendKeys("");
             _loginForm.PasswordInput.SendKeys("");
             return this;
         }
 
-        public LoginFormComponentActions PressLoginButton(){
+        public LoginFormComponentActions PressLoginButton()
+        {
             _loginForm.LoginButton.Click();
             return this;
         }

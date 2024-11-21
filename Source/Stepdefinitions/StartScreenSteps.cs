@@ -8,7 +8,7 @@ using TechTalk.SpecFlow;
  */
 namespace Ritech.Steps
 {
-    
+
     [Binding]
     public class StartScreenSteps
     {
@@ -16,13 +16,15 @@ namespace Ritech.Steps
 
 
         [Given(@"(.*) is a user of webdriverio app")]
-        public void actorIsAUserOfWebdriverioApp(String Actor){
+        public void actorIsAUserOfWebdriverioApp(String Actor)
+        {
             _StartPage.NavigationBar.Actions.NavigateTo(NavIdentifiers.HOME);
-            _StartPage.EnsureIsDisplayed();
+            _StartPage.Actions.EnsureIsDisplayedProperly();
         }
 
         [When(@"(.*) wants to login")]
-        public void actorWantsToLogin(String Actor){
+        public void actorWantsToLogin(String Actor)
+        {
             _StartPage.NavigationBar.Actions.NavigateTo(NavIdentifiers.LOGIN);
         }
 

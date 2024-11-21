@@ -10,9 +10,13 @@ using Ritech.Utils;
 
 namespace Ritech.Pages
 {
+    /*
+     * This class represents the "Login" page.
+     * It has elements unique to itself, common components and actions.
+     */
     public class LoginFormPage
     {
-
+        // does LoginFormActions
         private LoginFormActions _actions;
 
         public LoginFormActions Actions
@@ -28,6 +32,7 @@ namespace Ritech.Pages
             }
         }
 
+        // start LoginFormPage unique elements
         public AppiumElement FormHeader => CustomActions.FindElement(
             By.XPath("//android.widget.ScrollView[@content-desc='Login-screen']")
         );
@@ -40,15 +45,18 @@ namespace Ritech.Pages
             By.XPath("//android.widget.TextView[@text='Sign up']")
         );
 
+        public AppiumElement FindErrorMessage(string Message)
+        {
+            return CustomActions.FindElement(By.XPath("//android.widget.TextView[@text='" + Message + "']"));
+        }
+        // end LoginFormPage unique elements
+
+        // start LoginFormPage components
         public LoginFormComponent LoginFormComponent = new LoginFormComponent();
 
         public NativeAlertComponent AlertPopup = new NativeAlertComponent();
 
         public NavigationComponent NavigationBar = new NavigationComponent();
-
-        public AppiumElement FindErrorMessage(string Message)
-        {
-            return CustomActions.FindElement(By.XPath("//android.widget.TextView[@text='" + Message + "']"));
-        }
+        // end LoginFormPage components
     }
 }

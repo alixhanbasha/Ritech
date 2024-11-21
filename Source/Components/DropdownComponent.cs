@@ -9,10 +9,14 @@ using Ritech.Utils;
 
 namespace Ritech.Components
 {
-
+    /*
+    * The "dropdown" menu component. 
+    * This app only has one, but in a real life webapp/app
+    * chancer are this component can be reused in many places
+    */
     public class DropdownComponent
     {
-
+        // does DropdownComponentActions
         private DropdownComponentActions _actions;
 
         public DropdownComponentActions Actions

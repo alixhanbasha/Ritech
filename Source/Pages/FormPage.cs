@@ -10,9 +10,13 @@ using Ritech.Utils;
 
 namespace Ritech.Pages
 {
+    /*
+     * This class represents the "Form" page.
+     * It has elements unique to itself, common components and actions.
+     */
     public class FormPage
     {
-
+        // does FormActions
         private FormActions _actions;
 
         public FormActions Actions
@@ -28,6 +32,7 @@ namespace Ritech.Pages
             }
         }
 
+        // start FormPage unique elements
         public AppiumElement FormHeader => CustomActions.FindElement(
             By.XPath("//android.widget.TextView[@text='Form components']")
         );
@@ -51,11 +56,14 @@ namespace Ritech.Pages
         public AppiumElement SubmitButton => CustomActions.FindElement(
             By.XPath("//android.widget.TextView[@text='Active']")
         );
+        // end FormPage unique elements
 
+        // start FormPage components
         public DropdownComponent Dropdown = new DropdownComponent();
 
         public NativeAlertComponent AlertPopup = new NativeAlertComponent();
 
         public NavigationComponent NavigationBar = new NavigationComponent();
+        // end FormPage components
     }
 }

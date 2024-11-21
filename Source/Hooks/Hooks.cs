@@ -29,7 +29,8 @@ namespace Ritech.Hooks
          * until it's launched
          */
         [AfterScenario]
-        public static void ResetAppState(){
+        public static void ResetAppState()
+        {
             DriverManager.Restart();
             var wait = new WebDriverWait(DriverManager.GetDriver(), TimeSpan.FromSeconds(60));
             wait.Until(el => DriverManager.GetDriver().GetAppState("com.wdiodemoapp").Equals(AppState.RunningInForeground));

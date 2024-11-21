@@ -8,6 +8,9 @@ using OpenQA.Selenium.Support.UI;
  */
 namespace Ritech.Utils
 {
+    /*
+     * A place where custom actions live.
+     */
     public class CustomActions
     {
 
@@ -30,18 +33,27 @@ namespace Ritech.Utils
             return element;
         }
 
+        // Use this instead of driver.FindElement 
+        // since it eliminates flaky tests
         public static AppiumElement FindElement(By Locator)
         {
             _waiter.Until(el => el.FindElement(Locator).Displayed);
             return DriverManager.GetDriver().FindElement(Locator);
         }
 
+        // Same as above, but this one returns a
+        // list of elements. Not used in this project
+        // but could be useful to have in a real life project
         public static List<AppiumElement> FindElements(By Locator)
         {
             _waiter.Until(el => el.FindElements(Locator).ToList().ElementAt(0).Displayed);
             return DriverManager.GetDriver().FindElements(Locator).ToList();
         }
 
+        // What performs the swipe motion.
+        //
+        // You need to install the appium 
+        // gestures plugin for gestures to work
         private static void PerformSwipe(AppiumElement element, string direction, int percentage = 50)
         {
             Console.WriteLine("Swipe element id: '{0}'", element.Id);
@@ -57,6 +69,7 @@ namespace Ritech.Utils
             DriverManager.GetDriver().ExecuteScript("gesture: swipe", swipeParams);
         }
 
+        // BEGIN gesture methods
         public static void SwipeLeft(AppiumElement Element)
         {
             PerformSwipe(Element, "left", 100);
@@ -86,6 +99,7 @@ namespace Ritech.Utils
             };
             DriverManager.GetDriver().ExecuteScript("gesture: dragAndDrop", dragAndDropParams);
         }
+        // END gesture methods
 
     }
 }

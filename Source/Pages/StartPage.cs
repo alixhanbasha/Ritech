@@ -2,6 +2,7 @@ using System.Diagnostics;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Appium;
+using Ritech.Actions;
 using Ritech.Components;
 using Ritech.Utils;
 
@@ -11,8 +12,28 @@ using Ritech.Utils;
  */
 namespace Ritech.Pages
 {
-    public class StartPage : Page
+    /*
+     * This class represents the "Home" page (the one that the user sees when the app is opened).
+     * It has elements unique to itself, common components and actions.
+     */
+    public class StartPage
     {
+        // does FormActions
+        private HomePageActions _actions;
+        public HomePageActions Actions
+        {
+            get
+            {
+                if (_actions == null)
+                {
+                    _actions = new HomePageActions(this);
+                    return _actions;
+                }
+                return _actions;
+            }
+        }
+
+        // start StartPage unique elements
         public AppiumElement StartScreen => CustomActions.FindElement(
             By.XPath("//android.widget.ScrollView[@content-desc='Home-screen']/android.view.ViewGroup")
         );
@@ -28,17 +49,11 @@ namespace Ritech.Pages
         public AppiumElement Support => CustomActions.FindElement(
             By.XPath("//android.widget.TextView[@text=\"Support\"]")
         );
+        // end StartPage unique elements
 
+        // start StartPage components
         public NavigationComponent NavigationBar = new NavigationComponent();
+        // end StartPage components
 
-        public bool EnsureIsDisplayed()
-        {
-            CustomActions.WaitUntilDisplayed(StartScreen);
-            Assert.True(StartScreen.Displayed);
-            Assert.True(NavigationBar.Actions.EnsureIsDisplayedProperly());
-
-            Trace.WriteLine("The start page is properly displayed.");
-            return true;
-        }
     }
 }

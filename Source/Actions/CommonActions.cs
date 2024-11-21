@@ -5,7 +5,11 @@
  */
 namespace Ritech.Actions
 {
-    public interface CommonActions 
+    /*
+     * An interface where common actions are defined
+     * and then can be implemented by pages or components
+     */
+    public interface CommonActions
     {
         bool EnsureIsDisplayedProperly();
     }
