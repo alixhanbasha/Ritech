@@ -28,12 +28,24 @@ In any other OS you can run `dotnet build` and then `dotnet test`.
 
 ---
 
+### Explaining the logic
+![Logic Explanation Diagram](./LogicDiagram.jpg)
+
+---
+
 ### Details & Dependencies
 - Operating system where the project was developed: Ubuntu 24.10
 - .NET 8
 - NUnit
+- Specflow
 - Appium 2.12.1
     - Appium gestures plugin
 - Android Studio, SDK and related tools
     - emulated device: Pixel 8 Pro API 35
 - livingdoc dotnet tool for test report generation
+
+---
+
+## Thoughts
+
+I chose to do the assignement in C# and Appium since 
