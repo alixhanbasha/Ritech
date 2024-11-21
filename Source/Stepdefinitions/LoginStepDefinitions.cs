@@ -2,8 +2,14 @@
  * Ritech QA assignement
  * Author: Alixhan Basha - bashaalixhan@gmail.com
  */
+using OpenQA.Selenium.Appium.Interactions;
 using Ritech.Pages;
+using Ritech.Utils;
 using TechTalk.SpecFlow;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Appium;
+using OpenQA.Selenium.Appium.Android;
+using OpenQA.Selenium.Interactions;
 
 namespace Ritech.Steps
 {
@@ -34,7 +40,6 @@ namespace Ritech.Steps
         {
             setupLogin();
             _LoginFormPage.LoginFormComponent.Actions
-                .ClearData()
                 .TypeEmail("qatester@test.com")
                 .TypePassword("12345678")
                 .PressLoginButton();
@@ -45,7 +50,6 @@ namespace Ritech.Steps
         {
             setupLogin();
             _LoginFormPage.LoginFormComponent.Actions
-                .ClearData()
                 .TypeEmail("invalid-email")
                 .TypePassword("12345678")
                 .PressLoginButton();
@@ -56,7 +60,6 @@ namespace Ritech.Steps
         {
             setupLogin();
             _LoginFormPage.LoginFormComponent.Actions
-                .ClearData()
                 .TypeEmail("qatester@test.com")
                 .TypePassword("1234")
                 .PressLoginButton();
@@ -67,7 +70,6 @@ namespace Ritech.Steps
         {
             setupLogin();
             _LoginFormPage.LoginFormComponent.Actions
-                .ClearData()
                 .TypeEmail("invalid-email")
                 .TypePassword("1234")
                 .PressLoginButton();
@@ -78,7 +80,6 @@ namespace Ritech.Steps
         {
             setupLogin();
             _LoginFormPage.LoginFormComponent.Actions
-                .ClearData()
                 .PressLoginButton();
         }
 
