@@ -47,6 +47,21 @@ command -v livingdoc &>/dev/null || {
     dotnet tool install --global SpecFlow.Plus.LivingDoc.CLI
 }
 
+# is Appium already running ??
+APPIUM="NOP"
+echo "Checking if appium is running"
+lsof -n -i:4723 | grep LISTEN &>/dev/null
+#if not, ask wether we should run it.
+if [[ $? -eq 1 ]]; then 
+    read -p "Appium is not running. Shall I trigger it? [y/n]" -n1 des
+    if [[ "$des" == "y" || "$des" == "Y" ]]; then
+        printf "\nWill start appium.\n"
+        printf "\033[1;31m!!!!! Please make sure that the Android emulator is running !!!!!\033[0m\n"
+        appium --use-plugins=gestures &>APPIUM_LOGS.txt &     # launch appium as a child process and redirect its output to APPIUM_LOGS.txt
+        APPIUM=$!
+    fi
+fi
+
 # Building the project
 dotnet build
 if [[ $? -ne 0 ]]; then
@@ -59,3 +74,10 @@ $DOTNET_TEST && {
     printf "\n\nTests are completed. Generating reports...\n"
     livingdoc test-assembly ./bin/Debug/net8.0/Ritech.dll -t ./bin/Debug/net8.0/TestExecution.json
 }
+
+if [[ "$APPIUM" != "NOP" ]]; then
+    echo "Stopping appium..."
+    kill -9 $APPIUM
+fi
+
+echo "Done!"
